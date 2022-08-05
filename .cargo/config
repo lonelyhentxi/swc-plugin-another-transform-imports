@@ -1,0 +1,5 @@
+# These command aliases are not final, may change
+[alias]
+# Alias to build actual plugin binary for the specified target.
+prepublish = "build --release --target wasm32-wasi"
+"test:plugin" = "test --lib -- --nocapture"
