@@ -2,3 +2,4 @@
 ^target/
 target
 node_modules/
+swc_plugin_another_transform_imports.wasm
