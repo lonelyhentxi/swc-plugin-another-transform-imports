@@ -26,14 +26,11 @@
     "bugs": {
         "url": "https://github.com/lonelyhentai/swc-plugin-another-transform-imports/issues"
     },
-    "main": "./swc-plugin-another-transform-imports.wasm",
+    "main": "target/wasm32-wasi/release/swc-plugin-another-transform-imports.wasm",
     "scripts": {
-        "prepublishOnly": "cargo build --release && tscp target/wasm32-wasi/release/swc-plugin-another-transform-imports.wasm ."
+        "prepublishOnly": "cargo build --release"
     },
     "files": [
-        "./swc-plugin-another-transform-imports.wasm"
-    ],
-    "devDependencies": {
-        "typescript-cp": "^0.1.6"
-    }
+        "target/wasm32-wasi/release/swc-plugin-another-transform-imports.wasm"
+    ]
 }
