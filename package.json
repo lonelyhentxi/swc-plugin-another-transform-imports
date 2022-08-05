@@ -1,6 +1,6 @@
 {
     "name": "swc-plugin-another-transform-imports",
-    "version": "0.1.1",
+    "version": "0.1.3-alpha.1",
     "description": "Another wasm swc transform imports plugin",
     "author": "Zhou Yeheng",
     "license": "MIT",
@@ -26,11 +26,15 @@
     "bugs": {
         "url": "https://github.com/lonelyhentai/swc-plugin-another-transform-imports/issues"
     },
-    "main": "target/wasm32-wasi/release/swc-plugin-another-transform-imports.wasm",
+    "main": "./swc-plugin-another-transform-imports.wasm",
     "scripts": {
-        "prepublishOnly": "cargo build --release"
+        "prepublishOnly": "cargo build --release && cpx ./target/wasm32-wasi/release/swc-plugin-another-transform-imports.wasm ."
+    },
+    "devDependencies": {
+        "cpx": "^1.5.0"
     },
     "files": [
-        "target/wasm32-wasi/release/swc-plugin-another-transform-imports.wasm"
+        "swc-plugin-another-transform-imports.wasm",
+        "src"
     ]
 }
