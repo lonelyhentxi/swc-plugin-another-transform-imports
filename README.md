@@ -80,6 +80,7 @@ type MemberTransformer = "camel_case" | "kebab_case" | "pascal_case" | "snake_ca
 Usually upgrading to the latest version of @swc/core and other swc tools will solve the problem, see the following issue for typical solution:
 
 1. [plugin-styled-components crashes with 'Error while importing "env"."__get_transform_plugin_config": unknown import.' ](https://github.com/swc-project/plugins/issues/60)
+2. [about next.js and antd](https://github.com/lonelyhentai/swc-plugin-another-transform-imports/issues/1)
 
 ## Fork & Modify
 
@@ -87,6 +88,12 @@ You can simply fork this plugin, modify its source code to suit your custom need
 
 ```bash
 cargo prepublish
+```
+
+or
+
+```bash
+npm run prepublish
 ```
 
 Then copy your wasm target file, and set your config to:
