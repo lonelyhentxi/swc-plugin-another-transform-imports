@@ -1,5 +1,11 @@
 use std::collections::HashMap;
-use swc_plugin::{ast::*, metadata::TransformPluginProgramMetadata, plugin_transform};
+
+use swc_core::{
+    ecma::ast::*,
+    ecma::visit::{VisitMut, FoldWith, as_folder},
+    plugin::{plugin_transform,proxies::TransformPluginProgramMetadata},
+};
+
 use serde::{Serialize, Deserialize};
 use voca_rs::case::{
     camel_case, 
@@ -172,7 +178,7 @@ impl VisitMut for TransformVisitor {
                                             ImportDecl {
                                                 span: import_decl.span.clone(),
                                                 specifiers: vec![new_spec],
-                                                src: transformed_path,
+                                                src: Box::new(transformed_path),
                                                 type_only: import_named_spec.is_type_only,
                                                 asserts: import_decl.asserts.clone(),
                                             },
@@ -192,7 +198,7 @@ impl VisitMut for TransformVisitor {
                                                 ModuleDecl::Import(ImportDecl {
                                                     span: import_decl.span.clone(),
                                                     specifiers: vec![],
-                                                    src: transformed_path,
+                                                    src: Box::new(transformed_path),
                                                     type_only: false,
                                                     asserts: import_decl.asserts.clone(),
                                                 }),
@@ -273,8 +279,9 @@ pub fn process_transform(program: Program, metadata: TransformPluginProgramMetad
 
 #[cfg(test)]
 mod tests {
-    use swc_ecma_transforms_testing::test;
+    use swc_core::ecma::{transforms::testing::test, parser::{Syntax,EsConfig}};
     use maplit::hashmap;
+    use swc_core::ecma::visit::Fold;
     use super::*;
 
     fn transform_visitor(configs: TransformVisitorConfigs) -> impl 'static + Fold + VisitMut {
@@ -283,8 +290,15 @@ mod tests {
         })
     }
 
+    fn syntax() -> Syntax {
+        Syntax::Es(EsConfig {
+            jsx: true,
+            ..Default::default()
+        })
+    }
+
     test!(
-        swc_ecma_parser::Syntax::default(),
+        syntax(),
         |_| transform_visitor(hashmap!{
             "antd".to_string() => TransformVisitorSubConfig {
                 transform: "antd/es/${member}".to_string(),
@@ -301,7 +315,7 @@ mod tests {
 
 
     test!(
-        swc_ecma_parser::Syntax::default(),
+        syntax(),
         |_| transform_visitor(hashmap!{
             "antd".to_string() => TransformVisitorSubConfig {
                 transform: "antd/es/${member}".to_string(),
@@ -317,7 +331,7 @@ mod tests {
     );
 
     test!(
-        swc_ecma_parser::Syntax::default(),
+        syntax(),
         |_| transform_visitor(hashmap!{
             "antd".to_string() => TransformVisitorSubConfig {
                 transform: "antd/es/${member}".to_string(),
@@ -333,7 +347,7 @@ mod tests {
     );
 
     test!(
-        swc_ecma_parser::Syntax::default(),
+        syntax(),
         |_| {
             let configs_str = r#"
             {
