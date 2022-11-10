@@ -58,16 +58,35 @@ import 'antd/es/button/style';
 import merge from 'lodash/merge';
 ```
 
+### For next.js users
+
+**Ensure you read [next.js compiler docs](https://nextjs.org/docs/advanced-features/compiler) first!!!!**
+
+Since the semantic version association of `@swc/core` (npm) and `swc_core` (rust) for next.js is still experimental. next.js has a lot of breaking change in the swc native plugin mechanism between major and even minor versions.
+
+It is possible that as next.js and swc are updated, the current plugin will fail in the new version. Hopefully the new plugin api for swc will be stable soon. Here is the current version correspondence.
+
+| next.js versions | This package version |
+|------------------|----------------------|
+| 12.3.x           | 0.1.5                |
+| 13.0.x           | 0.2.0                |
+
+### For antd users
+
+`antd/es/xxx/style` and `antd/lib/xxx/style` will introduce `less`, please add `less-loader` by yourself.
+
+If you use antd and next.js at the same time, it will be a bit troublesome to work with them, you can use `next-plugin-antd-less` for convenience, see [issue 1](https://github.com/lonelyhentai/swc-plugin-another-transform-imports/issues/1) for an example.
+
 ## Options
 
 
-| Name | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
-| `transform` | `string` | yes | `undefined` | The library name to use instead of the one specified in the import statement.  ${member} will be replaced with the member, aka Grid/Row/Col/etc. |
-| `preventFullImport` | `boolean` | no | `true` | Whether or not to throw when an import is encountered which would cause the entire module to be imported. |
-| `skipDefaultConversion` | `boolean` | no | `false` | When set to true, will preserve `import { X }` syntax instead of converting to `import X`. |
-| `style` | `string` | no | `false` | The style path of the member, ${member} will be replaced with the member, aka Grid/Row/Col/etc. |
-| `memberTransformers` | `Array<MemberTransformer>` | no | [] | Member transformers 
+| Name                    | Type                       | Required | Default     | Description                                                                                                                                      |
+|-------------------------|----------------------------|----------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `transform`             | `string`                   | yes      | `undefined` | The library name to use instead of the one specified in the import statement.  ${member} will be replaced with the member, aka Grid/Row/Col/etc. |
+| `preventFullImport`     | `boolean`                  | no       | `true`      | Whether or not to throw when an import is encountered which would cause the entire module to be imported.                                        |
+| `skipDefaultConversion` | `boolean`                  | no       | `false`     | When set to true, will preserve `import { X }` syntax instead of converting to `import X`.                                                       |
+| `style`                 | `string`                   | no       | `false`     | The style path of the member, ${member} will be replaced with the member, aka Grid/Row/Col/etc.                                                  |
+| `memberTransformers`    | `Array<MemberTransformer>` | no       | []          | Member transformers                                                                                                                              |
 
 ### 1. `type MemberTransformer`
 
