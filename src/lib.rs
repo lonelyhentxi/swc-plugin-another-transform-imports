@@ -178,7 +178,7 @@ impl VisitMut for TransformVisitor {
                                             ImportDecl {
                                                 span: import_decl.span.clone(),
                                                 specifiers: vec![new_spec],
-                                                src: Box::new(transformed_path),
+                                                src: transformed_path,
                                                 type_only: import_named_spec.is_type_only,
                                                 asserts: import_decl.asserts.clone(),
                                             },
@@ -198,7 +198,7 @@ impl VisitMut for TransformVisitor {
                                                 ModuleDecl::Import(ImportDecl {
                                                     span: import_decl.span.clone(),
                                                     specifiers: vec![],
-                                                    src: Box::new(transformed_path),
+                                                    src: transformed_path,
                                                     type_only: false,
                                                     asserts: import_decl.asserts.clone(),
                                                 }),
