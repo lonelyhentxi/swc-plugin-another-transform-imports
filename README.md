@@ -69,7 +69,7 @@ It is possible that as next.js and swc are updated, the current plugin will fail
 | next.js versions | This package version |
 |------------------|----------------------|
 | 12.3.x           | 0.1.5                |
-| 13.0.x           | 0.2.0                |
+| 13.0.x           | 0.2.1                |
 
 ### For antd users
 
