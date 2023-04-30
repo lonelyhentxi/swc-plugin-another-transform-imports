@@ -23,10 +23,10 @@ It follows resolving rule of node.js, can be use in `.swcrc`，`webpack.config.j
           "swc-plugin-another-transform-imports",
           {
             "antd": {
-              "transform": "antd/es/${member}",
+              "transform": "antd/lib/${member}",
               "skipDefaultConversion": false,
               "preventFullImport": true,
-              "style": "antd/es/${member}/style",
+              "style": "antd/lib/${member}/style",
               "memberTransformers": ["dashed_case"]
             },
             "lodash": {
@@ -51,10 +51,10 @@ import { merge } from 'lodash';
 To:
 
 ```js
-import MyButton from 'antd/es/button';
-import BackTop from 'antd/es/back-top';
-import 'antd/es/back-top/style';
-import 'antd/es/button/style';
+import MyButton from 'antd/lib/button';
+import BackTop from 'antd/lib/back-top';
+import 'antd/lib/back-top/style';
+import 'antd/lib/button/style';
 import merge from 'lodash/merge';
 ```
 
@@ -104,6 +104,7 @@ Usually upgrading to the latest version of @swc/core and other swc tools will so
 
 1. [plugin-styled-components crashes with 'Error while importing "env"."__get_transform_plugin_config": unknown import.' ](https://github.com/swc-project/plugins/issues/60)
 2. [about next.js and antd](https://github.com/lonelyhentai/swc-plugin-another-transform-imports/issues/1)
+3. [about next.js 13+](https://github.com/lonelyhentai/swc-plugin-another-transform-imports/issues/2)
 
 ## Fork & Modify
 
