@@ -1,6 +1,6 @@
 [package]
 name = "swc-plugin-another-transform-imports"
-version = "0.1.0"
+version = "0.2.4"
 edition = "2021"
 
 [lib]
@@ -22,8 +22,8 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1.0.82"
 voca_rs = "1.14.0"
 tracing = "0.1.36"
-swc_common = {version = "0.31.5", features = ["concurrent"]}
-swc_core = {version = "0.75.36", features = [
+swc_common = {version = "0.31.12", features = ["concurrent"]}
+swc_core = {version = "0.76.48", features = [
   "ecma_plugin_transform",
   "ecma_utils",
   "ecma_quote",
@@ -34,4 +34,4 @@ swc_core = {version = "0.75.36", features = [
 ]}
 
 [dev-dependencies]
-swc_core = { features = ["testing_transform"], version = "0.75.36" }
+swc_core = { features = ["testing_transform"], version = "0.76.48" }
