@@ -74,6 +74,7 @@ It is possible that as next.js and swc are updated, the current plugin will fail
 | 13.3.1 ~  13.4.3       | 0.2.3                |
 | 13.4.3-canary.2 ~ 13.4.7(@swc/core@1.3.58 ~ @swc/core@1.3.62) | 0.2.4 |
 | 13.4.8 ~ v13.4.10-canary.0(@swc/core@1.3.63 ~ @swc/core@1.3.67) | 0.2.5 |
+| 13.4.10-canary.1 ~ (@swc/core@1.3.68 ~ @swc/core@1.3.80) | 0.2.6 |
 
 [@swc/core and swc_core version mappings](https://swc.rs/docs/plugin/selecting-swc-core)
 
