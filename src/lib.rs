@@ -180,7 +180,7 @@ impl VisitMut for TransformVisitor {
                                                 specifiers: vec![new_spec],
                                                 src: Box::new(transformed_path),
                                                 type_only: import_named_spec.is_type_only,
-                                                asserts: import_decl.asserts.clone(),
+                                                with: import_decl.with.clone(),
                                             },
                                         ));
 
@@ -200,7 +200,7 @@ impl VisitMut for TransformVisitor {
                                                     specifiers: vec![],
                                                     src: Box::new(transformed_path),
                                                     type_only: false,
-                                                    asserts: import_decl.asserts.clone(),
+                                                    with: import_decl.with.clone(),
                                                 }),
                                             );
 
@@ -214,7 +214,7 @@ impl VisitMut for TransformVisitor {
                                                 specifiers: vec![spec.clone()],
                                                 src: import_decl.src.clone(),
                                                 type_only: import_decl.type_only,
-                                                asserts: import_decl.asserts.clone(),
+                                                with: import_decl.with.clone(),
                                             },
                                         ));
 
