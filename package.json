@@ -1,6 +1,6 @@
 {
     "name": "swc-plugin-another-transform-imports",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "description": "Another wasm swc transform imports plugin",
     "author": "Zhou Yeheng",
     "license": "MIT",
@@ -29,7 +29,7 @@
     "main": "swc_plugin_another_transform_imports.wasm",
     "scripts": {
         "prepublishOnly": "cargo build --release --target wasm32-wasi && cpx ./target/wasm32-wasi/release/swc_plugin_another_transform_imports.wasm .",
-        "update:swc-version-manifest": "tsx scripts/crawl_selecting_swc_core.mts"
+        "update:swc-version-manifest": "tsx scripts/update_swc_version_manifest.mts"
     },
     "devDependencies": {
         "@types/node": "^20.11.19",

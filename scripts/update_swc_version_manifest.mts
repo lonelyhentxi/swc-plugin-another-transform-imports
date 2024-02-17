@@ -15,8 +15,8 @@ interface VersionSnapshot {
 }
 
 const rsSwcCoreRegex = /###\s+`v?((\d+\.)*[\dx]+)`(\s*~\s*`v?((\d+\.)*[\dx]+)`)?\s*/;
-const npmSwcCoreRegex = /\-\s+`@swc\/core\@v?((\d+\.)*\d+(-\w+\.\d+)?)`\s*~\s*`@swc\/core@\v?((\d+\.)*\d+(-\w+\.\d+)?)`/;
-const nextRegex = /\-\s+`(next@)?v?((\d+\.)*\d+(-\w+\.\d+)?)`\s*~\s*`(next@)?v?((\d+\.)*\d+(-\w+\.\d+)?)`\s*/
+const npmSwcCoreRegex = /\-\s+(`@swc\/core\@v?((\d+\.)*\d+(-\w+\.\d+)?)`)?\s*~\s*(`@swc\/core@\v?((\d+\.)*\d+(-\w+\.\d+)?)`)?/;
+const nextRegex = /\-\s+(`(next@)?v?((\d+\.)*\d+(-\w+\.\d+)?)`)?\s*~\s*(`(next@)?v?((\d+\.)*\d+(-\w+\.\d+)?)`)?/
 
 const manifestPath = path.resolve(
   import.meta.dirname,
@@ -42,12 +42,12 @@ async function fetchAndParseSwcCoreVersions() {
         to: rsSwcCoreMatch[4] as string ?? null
       };
       const npmSwcCoreVersion = {
-        from: npmSwcCoreMatch[1] as string ?? null,
-        to: npmSwcCoreMatch[4] as string ?? null
+        from: npmSwcCoreMatch[2] as string ?? null,
+        to: npmSwcCoreMatch[6] as string ?? null
       }
       const nextVersion = {
-        from: nextMatch?.[2] as string ?? null,
-        to: nextMatch?.[6] as string ?? null
+        from: nextMatch?.[3] as string ?? null,
+        to: nextMatch?.[8] as string ?? null
       };
       versionSnapshots.push({
         swc_core: rsSwcCoreVersion,
