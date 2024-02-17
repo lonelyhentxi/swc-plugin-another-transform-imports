@@ -1,6 +1,6 @@
 {
     "name": "swc-plugin-another-transform-imports",
-    "version": "0.2.7",
+    "version": "0.2.8",
     "description": "Another wasm swc transform imports plugin",
     "author": "Zhou Yeheng",
     "license": "MIT",
@@ -28,15 +28,20 @@
     },
     "main": "swc_plugin_another_transform_imports.wasm",
     "scripts": {
-        "prepublishOnly": "cargo build --release --target wasm32-wasi && cpx ./target/wasm32-wasi/release/swc_plugin_another_transform_imports.wasm ."
+        "prepublishOnly": "cargo build --release --target wasm32-wasi && cpx ./target/wasm32-wasi/release/swc_plugin_another_transform_imports.wasm .",
+        "update:swc-version-manifest": "tsx scripts/crawl_selecting_swc_core.mts"
     },
     "devDependencies": {
-        "cpx2": "^5.0.0"
+        "@types/node": "^20.11.19",
+        "cpx2": "^5.0.0",
+        "node-fetch": "^3.3.2",
+        "tsx": "^4.7.1"
     },
     "files": [
         "swc_plugin_another_transform_imports.wasm",
         "src"
     ],
-    "dependencies": {
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
     }
 }

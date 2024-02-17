@@ -1,0 +1,128 @@
+[
+  {
+    "swc_core": {
+      "from": "0.88.x",
+      "to": "0.89.x"
+    },
+    "@swc/core": {
+      "from": "1.3.106",
+      "to": "1.3.107"
+    },
+    "next": {
+      "from": null,
+      "to": null
+    }
+  },
+  {
+    "swc_core": {
+      "from": "0.82.x",
+      "to": "0.87.x"
+    },
+    "@swc/core": {
+      "from": "1.3.81",
+      "to": "1.3.105"
+    },
+    "next": {
+      "from": null,
+      "to": null
+    }
+  },
+  {
+    "swc_core": {
+      "from": "0.79.x",
+      "to": "0.81.x"
+    },
+    "@swc/core": {
+      "from": "1.3.68",
+      "to": "1.3.80"
+    },
+    "next": {
+      "from": null,
+      "to": null
+    }
+  },
+  {
+    "swc_core": {
+      "from": "0.78.x",
+      "to": null
+    },
+    "@swc/core": {
+      "from": "1.3.63",
+      "to": "1.3.67"
+    },
+    "next": {
+      "from": "13.4.8",
+      "to": "13.4.10-canary.0"
+    }
+  },
+  {
+    "swc_core": {
+      "from": "0.76.x",
+      "to": "0.77.x"
+    },
+    "@swc/core": {
+      "from": "1.3.58",
+      "to": "1.3.62"
+    },
+    "next": {
+      "from": "13.4.3-canary.2",
+      "to": "13.4.7"
+    }
+  },
+  {
+    "swc_core": {
+      "from": "0.75.x",
+      "to": null
+    },
+    "@swc/core": {
+      "from": "1.3.49",
+      "to": "1.3.57"
+    },
+    "next": {
+      "from": "13.3.1-canary.12",
+      "to": "13.4.3-canary.1"
+    }
+  },
+  {
+    "swc_core": {
+      "from": "0.72.4",
+      "to": "0.74.6"
+    },
+    "@swc/core": {
+      "from": "1.3.44",
+      "to": "1.3.47"
+    },
+    "next": {
+      "from": null,
+      "to": null
+    }
+  },
+  {
+    "swc_core": {
+      "from": "0.69.x",
+      "to": "0.72.3"
+    },
+    "@swc/core": {
+      "from": "1.3.40",
+      "to": "1.3.42"
+    },
+    "next": {
+      "from": null,
+      "to": null
+    }
+  },
+  {
+    "swc_core": {
+      "from": "0.54.x",
+      "to": "0.59.x"
+    },
+    "@swc/core": {
+      "from": "1.3.29",
+      "to": "1.3.37"
+    },
+    "next": {
+      "from": null,
+      "to": null
+    }
+  }
+]
